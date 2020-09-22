@@ -15,11 +15,16 @@ public class LightArray {
         this.length = length;
         lights = new Light[length];
         for (int i = 0; i < length; i++) {
-            var lightColor = switch(i/(length/4)) {
-                case 0 -> Color.red;
-                case 1 -> Color.green;
-                case 2 -> Color.blue;
-                default -> Color.white;
+            Color lightColor = Color.white;
+            switch(i/(length/4)) {
+                case 0:
+                    lightColor = Color.red;
+                    break;
+                case 1:
+                    lightColor = Color.green;
+                    break;
+                case 2:
+                    lightColor = Color.blue;
             };
             lights[i] = new Light(lightColor, false); //gives 4 different colors to the lights
         }
@@ -52,11 +57,16 @@ public class LightArray {
     public void setToClone(LightArray arr) {
         if (arr.length != length) return;
         for (int i = 0; i < length; i++) {
-            var lightColor = switch(i/(length/4)) {
-                case 0 -> Color.red;
-                case 1 -> Color.green;
-                case 2 -> Color.blue;
-                default -> Color.white;
+            Color lightColor = Color.white;
+            switch(i/(length/4)) {
+                case 0:
+                    lightColor = Color.red;
+                    break;
+                case 1:
+                    lightColor = Color.green;
+                    break;
+                case 2:
+                    lightColor = Color.blue;
             };
             lights[i] = new Light(lightColor, arr.getLight(i)); //gives 4 different colors to the lights
         }
