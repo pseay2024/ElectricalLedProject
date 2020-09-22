@@ -9,7 +9,7 @@ import java.util.function.BiPredicate;
 public class LightArray {
 
     Light[] lights;
-    public final int length;
+    public int length;
 
     public LightArray(int length) {
         this.length = length;
@@ -49,6 +49,19 @@ public class LightArray {
         }
     }
 
+    public void setToClone(LightArray arr) {
+        if (arr.length != length) return;
+        for (int i = 0; i < length; i++) {
+            var lightColor = switch(i/(length/4)) {
+                case 0 -> Color.red;
+                case 1 -> Color.green;
+                case 2 -> Color.blue;
+                default -> Color.white;
+            };
+            lights[i] = new Light(lightColor, arr.getLight(i)); //gives 4 different colors to the lights
+        }
+    }
+
     /**
      * repaints the Lights
      */
@@ -82,7 +95,7 @@ public class LightArray {
         }
 
         offset = lightSize + hspace/2;
-        for (int i = 0; i < bottomLights.length; i++) {
+        for (int i = bottomLights.length-1; i >= 0; i--) {
             if (bottomLights[i].getOn() == true) g.setColor(bottomLights[i].getColor());
             else g.setColor(bottomLights[i].getColor().darker().darker().darker());
             g.fillRect(offset,clipHeight-lightSize,lightSize,lightSize);
@@ -92,7 +105,7 @@ public class LightArray {
         //left and right
         int vspace = (clipHeight-((maxSideLength+2)*lightSize))/maxSideLength;
         offset = lightSize + vspace/2;
-        for (int i = 0; i < leftLights.length; i++) {
+        for (int i = leftLights.length-1; i >= 0; i--) {
             if (leftLights[i].getOn() == true) g.setColor(leftLights[i].getColor());
             else g.setColor(leftLights[i].getColor().darker().darker().darker());
             g.fillRect(0,offset,lightSize,lightSize);

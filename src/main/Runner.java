@@ -24,7 +24,7 @@ public class Runner extends JPanel {
 
     public static void main(String[] args) throws Exception{
         Runner r = new Runner();
-        r.run(new RandomPattern());
+        r.run(new ClockwisePattern());
     }
 
     public void run(Pattern p) throws Exception{

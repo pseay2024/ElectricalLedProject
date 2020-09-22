@@ -21,7 +21,7 @@ public class Clock {
                 state = getSignal();
                 if (state) {
                     //rising edge
-                    lightArr = p.getNewValues(lightArr);
+                    lightArr.setToClone(p.getNewValues(lightArr));
                     runner.repaintFrame();
                 }
             }
