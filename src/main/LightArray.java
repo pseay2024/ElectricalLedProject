@@ -25,7 +25,7 @@ public class LightArray {
                     break;
                 case 2:
                     lightColor = Color.blue;
-            };
+            }
             lights[i] = new Light(lightColor, false); //gives 4 different colors to the lights
         }
     }
