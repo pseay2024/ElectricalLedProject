@@ -8,8 +8,8 @@ import java.util.Random;
 
 public class Runner extends JPanel {
 
-    public final static int WIDTH = 200;
-    public final static int HEIGHT = 200;
+    public final static int WIDTH = 500;
+    public final static int HEIGHT = 500;
 
     LightArray lightArr;
     JFrame jf;
@@ -18,7 +18,7 @@ public class Runner extends JPanel {
         jf = new JFrame("LEDs");
         jf.setVisible(true);
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jf.setSize(200,200);
+        jf.setSize(WIDTH,HEIGHT);
         jf.add(this);
     }
 
