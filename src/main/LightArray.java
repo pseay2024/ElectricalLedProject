@@ -9,7 +9,7 @@ import java.util.function.BiPredicate;
 public class LightArray {
 
     Light[] lights;
-    public int length;
+    public final int length;
 
     public LightArray(int length) {
         this.length = length;
